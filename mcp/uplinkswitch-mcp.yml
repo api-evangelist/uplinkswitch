@@ -1,0 +1,10 @@
+generated: "2026-10-24"
+method: probed
+source: "https://api.uplinkswitch.com/mcp"
+deployment:
+  mode: remote
+  endpoint: "https://api.uplinkswitch.com/mcp"
+  install: ""
+  package: ""
+  auth: unknown
+  verified: probed

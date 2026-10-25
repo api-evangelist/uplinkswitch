@@ -1,30 +1,99 @@
 aid: uplinkswitch
 name: UplinkSwitch
-description: 'UplinkSwitch is a company surfaced via the API Evangelist harvest backlog (source: new-submission)
-  and added to the network as a stub for full-pipeline profiling.'
+image: https://uplinkswitch.ai/opengraph-image
+description: UplinkSwitch provides a resold LLM gateway offering uncensored models below list price. It operates a platform at uplinkswitch.ai
+  that aggregates multiple large language model providers, enabling developers to access a variety of models via a unified API. The service includes
+  features such as rate limiting, usage analytics, and flexible pricing plans. UplinkSwitch aims to simplify integration of advanced AI capabilities
+  into applications while maintaining transparency and compliance with industry standards.
 url: https://raw.githubusercontent.com/api-evangelist/uplinkswitch/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:new-submission
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-24 (modular-v1; was harvest)
 specificationVersion: '0.20'
 created: '2026-10-24'
 modified: '2026-10-24'
 tags:
-- Company
-apis: []
+- AI
+- LLM
+- Gateway
+- Reseller
+- Platform
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Vocabulary
+  url: vocabulary/uplinkswitch-vocabulary.yml
+- type: ChangeLog
+  url: changelog/uplinkswitch-changelog.yml
+- type: Security
+  url: security/uplinkswitch-vulnerability-disclosure.yml
+- type: Authentication
+  url: authentication/uplinkswitch-authentication.yml
+- type: Conformance
+  url: conformance/uplinkswitch-conformance.yml
+- type: LLMsTxt
+  url: llms/uplinkswitch-llms.txt
+- type: MCPServer
+  url: mcp/uplinkswitch-mcp.yml
+- type: SecurityTxt
+  url: well-known/uplinkswitch-security.txt
+- type: WellKnown
+  url: well-known/uplinkswitch-well-known.yml
+- type: Hosts
+  url: hosts/uplinkswitch-hosts.yml
+- type: Vendors
+  url: vendors/uplinkswitch-vendors.yml
+- type: SDKs
+  url: packages/uplinkswitch-packages.yml
+- type: Packages
+  url: packages/uplinkswitch-packages.yml
+- type: TermsOfService
+  url: https://uplinkswitch.ai/terms
+- type: StatusPage
+  url: https://uplinkswitch.ai/status
+- type: Sandbox
+  url: https://uplinkswitch.ai/console
+- type: PrivacyPolicy
+  url: https://uplinkswitch.ai/privacy
+- type: Pricing
+  url: https://uplinkswitch.ai/pricing-index
+- type: Newsroom
+  url: https://uplinkswitch.ai/models/media
+- type: GitHubOrganization
+  url: https://github.com/uplinkswitch
+- type: Documentation
+  url: https://uplinkswitch.ai/guides
+- type: ChangeLog
+  url: https://uplinkswitch.ai/changelog
+- type: Blog
+  url: https://uplinkswitch.ai/blog
+- type: GettingStarted
+  url: https://uplinkswitch.ai/blog/pentest-agents-api-setup
+- type: APIReference
+  url: https://uplinkswitch.ai/llms.txt
 - type: VulnerabilityDisclosure
   url: security/uplinkswitch-vulnerability-disclosure.yml
 - type: DomainSecurity
   url: security/uplinkswitch-domain-security.yml
 - type: Website
   url: https://uplinkswitch.ai
-x-submission-notes: OpenAPI 3.1, 24 ops (api.uplinkswitch.com); llms.txt. Resold LLM gateway incl. "uncensored"
-  models below list price -- note on listing
+apis:
+- name: UplinkSwitch API
+  description: One key and one base URL for Claude, GPT, Gemini and the open-weight models in the OpenAI, Anthropic and Gemini wire formats, plus
+    image, video, speech and 3D models.
+  humanURL: https://uplinkswitch.ai
+  baseURL: https://api.uplinkswitch.com
+  aid: uplinkswitch:uplinkswitch-api
+x-submission-notes: OpenAPI 3.1, 24 ops (api.uplinkswitch.com); llms.txt. Resold LLM gateway incl. "uncensored" models below list price -- note
+  on listing
 x-submitted-by: hello@uplinkswitch.com (apis.io/add, 2026-10-23)
+x-enrichment:
+  date: '2026-10-24'
+  status: enriched
+  artifacts_added: 16
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

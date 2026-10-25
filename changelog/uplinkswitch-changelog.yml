@@ -1,0 +1,77 @@
+generated: '2026-10-24'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://uplinkswitch.ai/changelog
+sources:
+- https://uplinkswitch.ai/changelog
+entries:
+- breaking: false
+  highlights:
+  - Feature Free LLM playground
+  - 'Chat with one model at a time at /playground, no sign-up: any chat model in the catalog, a system prompt, temperature and reply length, with
+    the cost under each reply.'
+  - A few free turns a day on the lower-priced models; your key runs the rest.
+  date: '2026-10-23'
+- breaking: false
+  highlights:
+  - 'Feature Roleplay chat: free uncensored AI chat with character cards'
+  - A chat panel at /roleplay on the uncensored builds, no sign-up.
+  - Five of our cards, or import your SillyTavern cards.
+  date: '2026-10-22'
+- breaking: false
+  highlights:
+  - Models Gemini 4 Argon, 70% under list
+  - Google's newest Gemini is live as gemini-4-argon at $0.60 input and $3.00 output per million tokens, against Google's list price of $2.00
+    and $10.00.
+  date: '2026-10-16'
+- breaking: false
+  highlights:
+  - Feature OpenAPI document for the API
+  - 'The customer API is described in an OpenAPI 3.1 document at api.uplinkswitch.com/openapi.json: every route, its request and response shapes,
+    the authentication headers and the x-uplink-* headers.'
+  date: '2026-10-12'
+- breaking: false
+  highlights:
+  - Feature Changelog and feed
+  - This page, grouped by day, with an RSS feed at /changelog/feed.xml.
+  date: '2026-10-12'
+- breaking: false
+  highlights:
+  - Feature Savings on every response
+  - x-uplink-charge, x-uplink-list-cost and x-uplink-saved on non-streamed responses.
+  date: '2026-10-11'
+- breaking: false
+  highlights:
+  - Feature Fastest routing, aliases, estimates and replay
+  - A key set to fastest tries the route that answered quickest lately.
+  - An alias pins a name of your choosing to a model.
+  date: '2026-10-11'
+- breaking: false
+  highlights:
+  - Feature Signed monthly statements
+  - Each month's statement is signed with Ed25519 and can be checked at /statements/verify without an account.
+  date: '2026-10-11'
+- breaking: false
+  highlights:
+  - Feature Daily retry test
+  - Every day one real request in each format tests the retry path, and the status page shows the result.
+  date: '2026-10-11'
+- breaking: false
+  highlights:
+  - Feature Homepage demo and daily real-model check
+  - Try models side by side on the home page.
+  - A fixed prompt goes to every model each day, and /proof shows each model's result.
+  date: '2026-10-11'
+- breaking: false
+  highlights:
+  - 'Feature Console: playground, traces, keys and status'
+  - A chat playground with per-request timing marks, keys shown as env rows, and a status page.
+  date: '2026-10-11'
+- breaking: false
+  highlights:
+  - Feature Hourly status checks
+  - GET /v1/status checks each format every hour.
+  date: '2026-10-11'
+note: The page lists entries by date only; no explicit version numbers or versioning scheme are provided, so versioningScheme and currentVersion
+  are absent.
+docs: https://uplinkswitch.ai/changelog

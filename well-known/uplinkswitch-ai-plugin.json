@@ -1,0 +1,20 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "UplinkSwitch",
+  "name_for_model": "uplinkswitch",
+  "description_for_human": "One API key for Claude, GPT, Gemini, DeepSeek, open-weight, uncensored and media models, priced below the developer's list price. Prepaid credit, no subscription.",
+  "description_for_model": "UplinkSwitch is an AI model API. Use /v1/catalog and /v1/catalog/media (no key needed) to read every model id and its price per million tokens or per image, second or generation, next to the developer's list price where recorded. Requests use the OpenAI, Anthropic or Gemini wire format at base URL https://api.uplinkswitch.com/v1 with a Bearer key that starts sk-uplink-live-. /v1/estimate prices a request before it is sent. /v1/proof reports the daily real-model check per model. Prices are in USD and change with the catalog; always read them live.",
+  "auth": {
+    "type": "user_http",
+    "authorization_type": "bearer",
+    "instructions": "Create a key at https://uplinkswitch.ai/console. Prepaid credit from $10. Catalog, estimate, status and proof routes need no key."
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://api.uplinkswitch.com/openapi.json",
+    "is_user_authenticated": true
+  },
+  "logo_url": "https://uplinkswitch.ai/brand/uplinkswitch-icon-512.png",
+  "contact_email": "hello@uplinkswitch.com",
+  "legal_info_url": "https://uplinkswitch.ai/terms"
+}

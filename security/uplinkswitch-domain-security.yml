@@ -8,8 +8,19 @@ hosts:
   cert_expires: Jan 17 00:39:13 2027 GMT
   hsts: true
   hsts_max_age: 31536000
+- host: api.uplinkswitch.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Jan  9 04:15:52 2027 GMT
+  hsts: null
 domains:
 - domain: uplinkswitch.ai
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: uplinkswitch.com
   dnssec: false
   caa: []
   spf: true

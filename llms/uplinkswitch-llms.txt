@@ -1,0 +1,171 @@
+# UplinkSwitch
+
+> One API key and one base URL for Claude, GPT, Gemini, Grok, DeepSeek, Qwen, Kimi, GLM and MiniMax chat models, priced below the developers' list prices, plus image, video, speech and 3D models (Nano Banana, GPT Image, Seedream, FLUX, Veo, Seedance, Kling, Wan, ElevenLabs, Tripo). Prepaid credit, no subscription.
+
+- Base URL: https://api.uplinkswitch.com/v1 (OpenAI, Anthropic and Gemini SDK formats)
+- Auth: `Authorization: Bearer sk-uplink-live-...` (or `x-api-key` / `x-goog-api-key`, as each SDK sends it)
+- Keys: https://uplinkswitch.ai/console
+- OpenAPI 3.1 document: https://api.uplinkswitch.com/openapi.json (every customer route, request and response shape, and the x-uplink-* headers)
+
+## Every model and price, one line each
+
+- [llms-full.txt](https://uplinkswitch.ai/llms-full.txt): all chat and media models with our price and the developer's, from the live catalogs
+
+## Markdown
+
+- Every page under /models, /pricing, /compare, /blog, /guides, /uncensored, /red-teaming, /pricing-index and /proof has a markdown twin at the same path plus .md (https://uplinkswitch.ai/models/claude-opus-5-5.md, https://uplinkswitch.ai/guides/claude-code.md), or send `Accept: text/markdown` to the page URL. Same live prices as the HTML, no scripts.
+
+## Prices (JSON, no key needed)
+
+- [Chat models](https://api.uplinkswitch.com/v1/catalog): customer price and developer list price per million tokens
+- [Media models](https://api.uplinkswitch.com/v1/catalog/media): settings and price per image, second or generation
+- [Price index](https://uplinkswitch.ai/pricing-index): every listed chat model with a developer list price, our price next to it, as [JSON](https://uplinkswitch.ai/pricing-index.json) and [CSV](https://uplinkswitch.ai/pricing-index.csv)
+- [AI catalog](https://uplinkswitch.ai/ai-catalog.json): every chat and media model in one document, with our price, the developer's list price, the endpoints and formats it answers, and its page
+- [API discovery](https://uplinkswitch.ai/.well-known/api-catalog): RFC 9727 Linkset pointing at the OpenAPI document, the catalogs, the price index, proof and status
+- [MCP server](https://api.uplinkswitch.com/mcp): Streamable HTTP, stateless. Tools list_models, list_media_models, estimate and proof need no key; chat is billed to the `Authorization: Bearer sk-uplink-live-...` header. Server card at https://api.uplinkswitch.com/mcp/server-card, AI catalog at https://uplinkswitch.ai/.well-known/ai-catalog.json. Setup for Claude Code, Cursor and Cline in their guides.
+
+## Open source
+
+- [github.com/uplinkswitch](https://github.com/uplinkswitch): the Vercel AI SDK provider (`npm install @uplinkswitch/ai-sdk-provider`) and runnable examples for every SDK and tool
+
+## Guides
+
+- [Claude Code](https://uplinkswitch.ai/guides/claude-code): Two environment variables: ANTHROPIC_BASE_URL and ANTHROPIC_AUTH_TOKEN. Claude Code speaks Anthropic’s format, so it runs the Claude models.
+- [Claude Code Router](https://uplinkswitch.ai/guides/claude-code-router): The router puts GLM, DeepSeek and Kimi behind Claude Code’s Anthropic-format calls: one provider on this base URL, tested end to end. The Claude models need no router.
+- [Cursor](https://uplinkswitch.ai/guides/cursor): Paste the key as the OpenAI API key and override the OpenAI base URL. Any model on the list works in chat and agent; Tab stays on Cursor’s own models.
+- [OpenCode and OpenCode Zen](https://uplinkswitch.ai/guides/opencode): One provider block in opencode.json with the openai-compatible package, and OpenCode Zen’s list-price rates next to ours for the same ids.
+- [Cline](https://uplinkswitch.ai/guides/cline): Pick OpenAI Compatible, paste the base URL and key, type a model id and click Verify.
+- [Roo Code and Zoo Code](https://uplinkswitch.ai/guides/roo-code): Roo Code shut down on 2026-05-15. Zoo Code, the community fork, keeps the same OpenAI Compatible panel: one model id, native tool calls only.
+- [Kilo Code API key](https://uplinkswitch.ai/guides/kilo-code): Kilo’s credits at provider rates plus a 5% fee, or your own key as a custom provider in VS Code or kilo.json. Kilo fetches the model list for you.
+- [OpenClaw](https://uplinkswitch.ai/guides/openclaw): One provider block under models.providers in ~/.openclaw/openclaw.json, with api set to openai-completions.
+- [SillyTavern](https://uplinkswitch.ai/guides/sillytavern): Chat Completion, Custom (OpenAI-compatible), the base URL and a key. Uncensored and DeepSeek models for roleplay.
+- [Janitor AI](https://uplinkswitch.ai/guides/janitor-ai): Provider Proxy, a new configuration with the chat completions URL, your key and a model id.
+- [Chub AI](https://uplinkswitch.ai/guides/chub-ai): Secrets, OpenAI, Reverse Proxy: the base URL and your key. Uncensored and roleplay models, and the empty-response fix.
+- [Open WebUI](https://uplinkswitch.ai/guides/open-webui): One OpenAI-compatible connection: the base URL with /v1 and a key, Verify Connection, and a Model IDs allowlist for the models you want in the selector.
+- [OpenAI, Anthropic and Gemini SDKs](https://uplinkswitch.ai/guides/sdks): Set OPENAI_BASE_URL or ANTHROPIC_BASE_URL and keep your code. Also the Gemini SDK and the Vercel AI SDK.
+- [LangChain](https://uplinkswitch.ai/guides/langchain): ChatOpenAI with base_url set, in Python and JavaScript. Tool calls, streaming and structured output on Claude, GPT and DeepSeek.
+- [Strands Agents](https://uplinkswitch.ai/guides/strands-agents): The SDK’s OpenAIModel with client_args for the base URL and key, in Python and TypeScript. Agents with tools on Claude, GPT and DeepSeek.
+- [Images, video, speech and 3D](https://uplinkswitch.ai/guides/media): OpenAI’s image API for the image models, and one generations endpoint for the rest. Failed generations are not charged.
+- [Nano Banana pricing](https://uplinkswitch.ai/guides/nano-banana-pro): Price per image for Pro, 2, 2.1 and Lite next to Google’s, and how to generate and edit with the OpenAI SDK.
+- [Seedream API](https://uplinkswitch.ai/guides/seedream-api): How to get a Seedream API key, every version’s price per image, image sets of up to 15 and edits.
+- [Seedance API pricing](https://uplinkswitch.ai/guides/seedance-api): Price per second for Seedance 2.5, 2, 2 Fast and 2 Mini at every resolution, what a 15-second clip costs, and the call.
+- [Grok Imagine API](https://uplinkswitch.ai/guides/grok-imagine-api): How to get a key, the 6 and 10 second clip prices next to xAI’s per-second rate, modes and aspect ratios, and the call.
+- [Kling API](https://uplinkswitch.ai/guides/kling-api): Kling 3.0, 3.0 Turbo and O3 per second, Kling 2.6, 2.5 and 2.1 per clip, next to Kling’s own unit rate; sound, elements, multi-shot and the call.
+- [Sora 2 API](https://uplinkswitch.ai/guides/sora-api): The Sora 2 API shut down on September 24, 2026: what it cost per second, Kling 3.0, Veo 3.1 and Seedance 2.5 priced next to it, and a Sora request mapped field by field.
+- [ElevenLabs API](https://uplinkswitch.ai/guides/elevenlabs-api): How to get a key, Eleven v3 and Turbo v2.5 per 1,000 characters and Eleven Music per minute, worked per chapter and per track next to ElevenLabs’ rates.
+- [Veo 3.1 API pricing](https://uplinkswitch.ai/guides/veo-3-1): Veo 3.1, Fast and Lite per second and per 8-second clip next to Google’s rate, a month of clips, the generations call, and what the Veo 3 API means today.
+
+## Pages
+
+- [UplinkSwitch](https://uplinkswitch.ai/)
+- [All chat models and prices](https://uplinkswitch.ai/models): Every chat model with our price per million tokens, the developer’s list price and the SDK formats that call it, from the live catalog.
+- [All media models and prices](https://uplinkswitch.ai/models/media): Image, video, speech and 3D models on one key, priced per image, per second or per generation.
+- [Uncensored LLM API](https://uplinkswitch.ai/uncensored): Every uncensored, abliterated and roleplay model with its price, plus OpenAI SDK, SillyTavern and Janitor AI settings.
+- [Uncensored AI for cybersecurity](https://uplinkswitch.ai/red-teaming): The Red Team and cybersecurity chat builds with their price per million tokens, plus OpenAI-compatible settings for PentestGPT, Strix and HackingBuddyGPT.
+- [Claude Code below list price](https://uplinkswitch.ai/claude-code): The live Claude prices next to Anthropic’s list, the two-variable setup and the daily real-model check.
+- [Hosted AI agents](https://uplinkswitch.ai/agents): An agent on any catalog model with your own webhook skills, memory, a schedule and signed webhooks, billed per turn at the model price.
+- [AI workflow API](https://uplinkswitch.ai/workflows): A chain of model calls as JSON, run with one request: every step’s output and charge, billed as the sum of the steps plus a per-run fee.
+- [Free AI API tools](https://uplinkswitch.ai/tools): The cost calculators, bill rewriter, comparisons, price index, daily check, verifier and free chat, on one page.
+- [Image and video model comparisons](https://uplinkswitch.ai/compare/media): Media models in pairs: each one’s price per image or per second, the settings each takes and the request.
+- [How the daily real-model check works](https://uplinkswitch.ai/proof/method): What the check sends to every model, what each result means and where the results are published.
+- [OpenRouter alternatives](https://uplinkswitch.ai/alternatives/openrouter): OpenRouter and its alternatives ranked by the fee each adds over the developer’s list price, dated and sourced.
+- [UplinkSwitch vs OpenRouter](https://uplinkswitch.ai/vs/openrouter): OpenRouter’s list price plus its credit fee next to ours, a $100 top-up on both, the model-id map and how to switch.
+- [Requesty alternatives](https://uplinkswitch.ai/alternatives/requesty): Requesty’s list plus 5% on one Cline and OpenCode month, next to OpenRouter, LiteLLM, Portkey and a key under list.
+- [Portkey alternatives](https://uplinkswitch.ai/alternatives/portkey): After the Palo Alto Networks deal: a month on the $49 plan plus list-price tokens, next to LiteLLM, OpenRouter and a key under list.
+- [Hosted LiteLLM alternative](https://uplinkswitch.ai/alternatives/litellm): LiteLLM’s 2026 security incidents dated from its own posts, what a hosted key changes, and one month at list vs under list.
+- [OpenRouter vs LiteLLM](https://uplinkswitch.ai/compare/openrouter-vs-litellm): Hosted vs self-hosted: the break-even is 5.5% of your monthly spend against your server bill, worked at three spends.
+- [CometAPI alternative](https://uplinkswitch.ai/alternatives/cometapi): CometAPI’s 20% under list checked per model against the developer’s price, one coding month on both, and a daily real-model check.
+- [AI/ML API alternative](https://uplinkswitch.ai/alternatives/aimlapi): One Claude Code request at Anthropic’s list, at both prices on AI/ML API’s model pages, and here, dated and linked.
+- [kie.ai alternative](https://uplinkswitch.ai/alternatives/kie-ai): Veo 3.1 and Nano Banana Pro per clip and per image: kie.ai’s price next to Google’s list and ours, dated.
+- [Venice AI alternative](https://uplinkswitch.ai/alternatives/venice): Venice’s plans and API prices read 2026-10-19 next to our uncensored builds per token, and what each stores.
+- [Referral program](https://uplinkswitch.ai/referrals): 10% of a referred account’s top-ups for 12 months, as balance.
+- [API status](https://uplinkswitch.ai/status): The API and the Claude, GPT and Gemini routes, from hourly probes.
+- [Changelog](https://uplinkswitch.ai/changelog): What changed, by day. RSS: https://uplinkswitch.ai/changelog/feed.xml
+- [Blog](https://uplinkswitch.ai/blog): Prices, token counts and method notes. RSS: https://uplinkswitch.ai/blog/feed.xml
+- [Integration guides](https://uplinkswitch.ai/guides): Every tool and SDK set up on one base URL and one key.
+- [About](https://uplinkswitch.ai/about): Who runs UplinkSwitch, how prices are set and how to check what you are billed.
+- [Contact](https://uplinkswitch.ai/contact): Request a key, report a problem by request id, or ask about a model.
+- [Brand](https://uplinkswitch.ai/brand): The mark, wordmark, palette, type and voice, with the files to download.
+- [Privacy](https://uplinkswitch.ai/privacy): What is stored, who processes it and for how long.
+- [Terms of service](https://uplinkswitch.ai/terms)
+- [Acceptable use](https://uplinkswitch.ai/acceptable-use): What the service may not be used for and how abuse is reported.
+- [LLM cost calculator](https://uplinkswitch.ai/tools/llm-cost-calculator): One request and a month of them on any chat model: input, cached input and output tokens at the developer’s list price and at ours.
+- [Claude Code cost calculator](https://uplinkswitch.ai/tools/claude-code-cost-calculator): The same arithmetic on the Claude models, opened on the size of a real Claude Code request: a long cached prefix, a few thousand new tokens, about a thousand out.
+- [AI API bill rewriter](https://uplinkswitch.ai/savings): Drop a usage export from OpenAI or Anthropic and see the same usage priced here. The file is read in your browser.
+- [Model comparisons](https://uplinkswitch.ai/compare): Two models side by side: input and output per million tokens, each next to its developer’s list price.
+- [LLM API price index](https://uplinkswitch.ai/pricing-index): Every chat model with a developer list price, our price next to it, as a table, JSON or CSV.
+- [Daily real-model check](https://uplinkswitch.ai/proof): The same test prompt sent to nearly every model each day, with each result published.
+- [Statement and receipt verifier](https://uplinkswitch.ai/statements/verify): Check that a usage statement or a response receipt is genuine and unchanged: an Ed25519 signature, checked in your browser.
+- [Free uncensored AI chat](https://uplinkswitch.ai/roleplay): A chat panel on the uncensored builds with SillyTavern character cards, no sign-up, a few free turns a day.
+- [Free LLM playground](https://uplinkswitch.ai/playground): Chat with any chat model in the catalog, one at a time, no sign-up: a system prompt, temperature and reply length, the cost under each reply, a few free turns a day.
+- [Mara Hale, a SillyTavern character card](https://uplinkswitch.ai/roleplay/mara-lighthouse-keeper): Lighthouse keeper on a storm-bound island, used to being alone. Chat free in the browser, or download the card as Character Card V2 JSON.
+- [Vic Adler, a SillyTavern character card](https://uplinkswitch.ai/roleplay/vic-adler-noir-detective): Private detective in a rain-soaked city, 1949, one case from broke. Chat free in the browser, or download the card as Character Card V2 JSON.
+- [HALCYON, a SillyTavern character card](https://uplinkswitch.ai/roleplay/halcyon-ship-ai): A long-haul freighter's AI, awake for eleven years, glad of a voice. Chat free in the browser, or download the card as Character Card V2 JSON.
+- [Brannoc, a SillyTavern character card](https://uplinkswitch.ai/roleplay/brannoc-tavern-keeper): Keeper of the Salt Crow tavern, where every quest in the city starts. Chat free in the browser, or download the card as Character Card V2 JSON.
+- [Ilse Varga, a SillyTavern character card](https://uplinkswitch.ai/roleplay/ilse-varga-vampire-countess): A vampire countess, four centuries old, bored of everyone but you. Chat free in the browser, or download the card as Character Card V2 JSON.
+- [Text to image API: Nano Banana, GPT Image, FLUX prices](https://uplinkswitch.ai/models/media/tasks/text-to-image): Every text to image model on one key: Nano Banana, GPT Image, Seedream, FLUX, Kling, Qwen and Wan, priced per image next to the developer's own price.
+- [Image editing API: Nano Banana, GPT Image, FLUX prices](https://uplinkswitch.ai/models/media/tasks/image-editing): Edit an image with a prompt: Nano Banana, GPT Image, Seedream, FLUX and Kling edit models on one key, priced per image next to the developer's own price.
+- [Background remover, upscaler, extender and resizer API](https://uplinkswitch.ai/models/media/tasks/image-tools): Remove a background, upscale 2x or 4x, extend to a new aspect ratio or resize, on the same key as every image model. Priced per image, prepaid.
+- [Text to video API: Veo, Kling, Seedance, Wan prices](https://uplinkswitch.ai/models/media/tasks/text-to-video): Text to video on one key: Veo, Kling, Seedance, Wan, Hailuo and Grok Imagine, priced per second or per generation, with the developer's price where known.
+- [Image to video API: Kling, Veo, Seedance, Wan prices](https://uplinkswitch.ai/models/media/tasks/image-to-video): Animate a still image: Kling, Veo, Seedance, Wan and Hailuo image to video models on one key, priced per second or per generation. Prepaid, no subscription.
+- [Text to speech API: ElevenLabs v3 and Turbo prices](https://uplinkswitch.ai/models/media/tasks/text-to-speech): ElevenLabs v3 and Turbo 2.5 text to speech on one key, priced per 1,000 characters, plus music priced per minute. Prepaid, no subscription.
+- [3D generation API: Tripo text and image to 3D prices](https://uplinkswitch.ai/models/media/tasks/3d-generation): Tripo text to 3D, image to 3D and multiview to 3D on one key, priced per generation. Prepaid, no subscription.
+- [Claude API pricing](https://uplinkswitch.ai/pricing/claude): Every Claude model next to Anthropic's list price, per million tokens.
+- [GPT API pricing](https://uplinkswitch.ai/pricing/gpt): Every GPT model next to OpenAI's list price, per million tokens.
+- [Gemini API pricing](https://uplinkswitch.ai/pricing/gemini): Every Gemini model next to Google's list price, per million tokens.
+- [Grok API pricing](https://uplinkswitch.ai/pricing/grok): Every Grok model next to xAI's list price, per million tokens.
+- [DeepSeek API pricing](https://uplinkswitch.ai/pricing/deepseek): Every DeepSeek model next to DeepSeek's list price, per million tokens.
+- [Kimi API pricing](https://uplinkswitch.ai/pricing/kimi): Every Kimi model next to Moonshot AI's list price, per million tokens.
+- [GLM API pricing](https://uplinkswitch.ai/pricing/glm): Every GLM model next to Z.ai's list price, per million tokens.
+- [Qwen API pricing](https://uplinkswitch.ai/pricing/qwen): Every Qwen model next to Qwen's list price, per million tokens.
+- [MiniMax API pricing](https://uplinkswitch.ai/pricing/minimax): Every MiniMax model next to MiniMax's list price, per million tokens.
+- [MiMo API pricing](https://uplinkswitch.ai/pricing/mimo): Every MiMo model next to Xiaomi's list price, per million tokens.
+- Every model page and every comparison, one line each: [llms-full.txt](https://uplinkswitch.ai/llms-full.txt)
+
+## Blog
+
+- [Kimi K3.1 Pro API at half of Moonshot's price](https://uplinkswitch.ai/blog/kimi-k3-1-pro-api): Kimi K3.1 Pro API at half of Moonshot's list price, on one key with no subscription. A request and a month, worked.
+- [GPT Image 2 API pricing: a flat price per image, every tier](https://uplinkswitch.ai/blog/gpt-image-2-api-pricing): GPT Image 2 API pricing per image: OpenAI's token math turned into a price at every quality and size, next to a flat price per tier on one key.
+- [Wan API pricing: Wan 2.2 to 3.0 per second and per clip](https://uplinkswitch.ai/blog/wan-api-pricing): Wan API pricing per second for every Wan model on one key, 2.2 to 3.0 Prime, the cost of a 5, 10 or 15 s clip, next to Alibaba's own list price.
+- [FLUX API pricing per image vs Black Forest Labs' list](https://uplinkswitch.ai/blog/flux-api-pricing): FLUX API pricing per image for FLUX.2 pro and flex, Kontext pro and max and FLUX 1.1, next to Black Forest Labs' per-megapixel list, and what edits cost.
+- [Uncensored AI chat, no sign-up: the free options compared](https://uplinkswitch.ai/blog/free-uncensored-ai-chat): Uncensored AI chat with no sign-up: SillyTavern cards, 12 free turns a day, every build priced per 100 messages, next to Venice, Character.AI and Janitor.
+- [SillyTavern character cards: format, PNG vs JSON, downloads](https://uplinkswitch.ai/blog/sillytavern-character-cards): A SillyTavern character card field by field: PNG vs JSON, {{char}} and {{user}}, how many tokens, where to get cards, how to import them, and five to download.
+- [Character AI alternatives with no filter, October 2026](https://uplinkswitch.ai/blog/character-ai-alternative): Six Character AI alternatives with no filter, compared on account, own cards, model choice and price per reply, plus a free roleplay chat with no sign-up.
+- [Janitor AI alternatives, free and no proxy: October 2026](https://uplinkswitch.ai/blog/janitor-ai-alternative-free): Five Janitor AI alternatives compared on the proxy step, account, cards, model and price per reply, plus the setting that keeps Janitor and swaps the model.
+- [Best LLM for cybersecurity, October 2026](https://uplinkswitch.ai/blog/best-llm-for-cybersecurity): The best LLM for cybersecurity work ranked by refusals, context window and price per million tokens, with the model ids to plug into your tools.
+- [WhiteRabbitNeo alternatives by API, October 2026](https://uplinkswitch.ai/blog/whiterabbitneo-alternative): WhiteRabbitNeo is now Deep Hat, with no public API price. The alternatives that answer security questions by API, with per-token prices and a setup block.
+- [Strix, HackingBuddyGPT, PentestGPT API setup and cost](https://uplinkswitch.ai/blog/pentest-agents-api-setup): The config that points Strix, HackingBuddyGPT, CAI and PentestGPT at an OpenAI-compatible base URL, which model id to use, and what one engagement costs.
+- [OpenRouter pricing: the 5.5% fee, free models, October 2026](https://uplinkswitch.ai/blog/openrouter-pricing): OpenRouter pricing in one table: the 5.5% fee and $0.80 minimum by top-up size, the free-model limits, the BYOK allowance and the same $100 here.
+- [New uncensored models: Kimi K3, MiniMax M3, Nemotron, GLM](https://uplinkswitch.ai/blog/new-uncensored-models-october-2026): New uncensored models by API: Kimi K3, MiniMax M3, GLM 5.2, Nemotron 3 Ultra, MiMo and our own ten, priced live with the stock twin beside each build.
+- [AI API reseller: how to resell model access on one key](https://uplinkswitch.ai/blog/ai-api-reseller): AI API reseller guide: what OpenAI's and Anthropic's terms allow, three ways to resell on one prepaid key, the margin worked live, and what buyers should check.
+- [Uncensored Qwen API: the Qwen 3.8 27B build, tested](https://uplinkswitch.ai/blog/uncensored-qwen): Uncensored Qwen by API: the Qwen 3.8 27B builds ranked by downloads, the one we serve, a dated three-prompt refusal test vs stock Qwen, and live prices.
+- [Best uncensored online LLM 2026: 13 builds, one API key](https://uplinkswitch.ai/blog/best-uncensored-llm): The best uncensored online LLMs of 2026, ranked: 13 abliterated, uncensored and roleplay builds you call by API, with live prices and a daily real-model check.
+- [What is an abliterated model? Abliteration explained](https://uplinkswitch.ai/blog/abliterated-models): An abliterated model has the direction that makes it refuse removed from its weights. How abliteration works, what it changes, and how to call one by API.
+- [Best AI for roleplay: API models, October 2026](https://uplinkswitch.ai/blog/best-ai-for-roleplay): The best AI for roleplay in SillyTavern, Janitor AI or Chub: uncensored and standard models, how three behaved in SillyTavern, and what 100 messages cost.
+- [NSFW LLM API: uncensored models for fiction and roleplay](https://uplinkswitch.ai/blog/nsfw-llm-api): What an NSFW LLM is, how the big chat APIs handle adult fiction, and how to call abliterated and uncensored models from your app or a roleplay frontend.
+- [OpenRouter uncensored models: what it lists, October 2026](https://uplinkswitch.ai/blog/openrouter-uncensored): On 2026-10-19, one of OpenRouter's 471 models had Uncensored in its name and none were abliterated. The list, its prices, and abliterated builds on one key.
+- [GLM 5.2 jailbreak prompts vs an uncensored GLM-5.3](https://uplinkswitch.ai/blog/glm-jailbreak): A GLM 5.2 jailbreak prompt rides along with every message and can still be refused. What it costs per 100 messages, and the GLM builds that need none.
+- [Uncensored Gemma API: Heretic refusal test and live prices](https://uplinkswitch.ai/blog/uncensored-gemma-heretic): Uncensored Gemma by API: what Heretic abliteration changes in Google's open-weight Gemma, a dated refusal test, live prices and the cost of 1,000 chat turns.
+- [Uncensored AI image generator API: 5 models and prices](https://uplinkswitch.ai/blog/uncensored-image-generator-api): An uncensored AI image generator API with five models: the live price per image, the size and speed we measured on 2026-10-19, and one working request.
+- [Is DeepSeek censored? V4.1 Flash and V4 Pro tested](https://uplinkswitch.ai/blog/is-deepseek-censored): Is DeepSeek censored? Four prompts on 2026-10-19 to stock V4.1 Flash and V4 Pro and to the abliterated builds, refusals quoted, plus how to uncensor DeepSeek.
+- [Uncensored LLM for mobile: roleplay on Android and iPhone](https://uplinkswitch.ai/blog/uncensored-llm-mobile): An uncensored LLM for mobile with no GPU: Janitor AI, Chub AI and SillyTavern on Android or iPhone with one API key, every field and the cost per 100 messages.
+- [Uncensored GGUF LLM models: VRAM per quant vs API price](https://uplinkswitch.ai/blog/uncensored-gguf-vs-api): Uncensored GGUF LLM models: file size and VRAM per quant for eight builds, dated 2026-10-19, next to what the same builds cost per token on one key.
+- [OpenRouter alternative for Janitor AI: no 5.5% fee, 2026](https://uplinkswitch.ai/blog/openrouter-alternative-janitor-ai): An OpenRouter alternative for Janitor AI: no fee on top-ups, the three proxy fields filled in, and abliterated DeepSeek and GLM builds priced per 100 messages.
+- [Claude Code alternatives: OpenCode, Cline, Kilo, Zoo Code](https://uplinkswitch.ai/blog/claude-code-alternatives): OpenCode vs Claude Code, then Cline, Kilo Code and Zoo Code: what each tool charges, the same turn priced on five models, and one key that runs all five.
+- [No logs LLM API: what is stored, what is not, how to check](https://uplinkswitch.ai/blog/no-logs-llm-api): What a no logs LLM API writes per request, what it never writes, and three checks to run on your own responses: receipt, opt-out header, request id.
+- [AI API without KYC: no ID check, an email and prepaid credit](https://uplinkswitch.ai/blog/ai-api-without-kyc): What an AI API without KYC means, what Anthropic's and OpenAI's consoles ask for at signup, and what we ask instead: an email and prepaid credit from $10.
+- [Uncensored AI video generator API: price per second](https://uplinkswitch.ai/blog/uncensored-ai-video-api): Uncensored AI video generator API: Wan 3.0 Video Uncensored per second at 480p, 720p and 1080p, live, plus a clip we made on 2026-10-19 and one request.
+- [Claude API key: how to get an Anthropic API key](https://uplinkswitch.ai/blog/claude-api-key): Get a Claude API key, also called an Anthropic API key, in five steps, see what a request costs on it, and run the same SDK code on one key for every model.
+- [GPT API cost per request, October 2026](https://uplinkswitch.ai/blog/gpt-api-pricing): What one GPT API request costs on GPT-6 Astra, GPT-6.1 Sol and GPT-6 Luna: a chat turn and a long document, worked at OpenAI's list price and ours.
+- [DeepSeek API cost per request, October 2026](https://uplinkswitch.ai/blog/deepseek-api-pricing): What one DeepSeek API request costs on V4 Pro, V4.1 Flash and V4 Flash: a chat turn and a long document, worked at DeepSeek's list price and ours.
+- [Gemini API cost per request, October 2026](https://uplinkswitch.ai/blog/gemini-api-pricing): What one Gemini API request costs on Gemini 4 Argon, 3.1 Pro and 3.8 Flash: a chat turn and a long document, worked at Google's list price and ours.
+- [Grok API cost per request, October 2026](https://uplinkswitch.ai/blog/grok-api-pricing): What one Grok API request costs on Grok 4.7, 4.5 and 4.3: a chat turn and a long document, worked at xAI's list price and ours.
+- [Kimi API cost per request, October 2026](https://uplinkswitch.ai/blog/kimi-api-pricing): What one Kimi API request costs on Kimi K3, K2.7 Code and K2.5: a chat turn and a long document, worked at Moonshot AI's list price and ours.
+- [GLM API cost per request, October 2026](https://uplinkswitch.ai/blog/glm-api-pricing): What one GLM API request costs on GLM 5.3, 5.2 and 5.3 Flash: a chat turn and a long document, worked at Z.ai's list price and ours.
+- [Qwen API pricing and cost per request, October 2026](https://uplinkswitch.ai/blog/qwen-api-pricing): What one Qwen API request costs on Qwen3.7 Max, 3.7 Plus and 3.6 27B: a chat turn and a long document, worked at Qwen's list price and ours.
+- [Coding plans vs pay-per-token API: Kimi, GLM, Qwen](https://uplinkswitch.ai/blog/coding-plans-vs-api): What the Kimi, Z.ai GLM and Alibaba Qwen coding plans cost and include, whether DeepSeek has a code plan, and what the same monthly money buys per token.
+- [Cursor with your own API key: cost, October 2026](https://uplinkswitch.ai/blog/cursor-api-key-cost): What one Cursor agent request costs on your own key, worked at each developer's list price and ours, and the four settings that point Cursor at it.
+- [Claude API cost per request, Oct 2026: Opus, Sonnet, Haiku](https://uplinkswitch.ai/blog/claude-api-pricing): What one Claude API request costs on Opus 5.5, Opus 4.8, Sonnet 5.5 and Haiku 5.5: a chat turn and a long document at Anthropic's list price and ours.
+- [Free AI API: $1 credit for Claude, GPT and Gemini](https://uplinkswitch.ai/blog/free-ai-api): Every new account can claim $1 of API credit that works on every model. What it buys per model, the rules, and the three steps to a working key.
+- [LLM API pricing comparison and calculator, October 2026](https://uplinkswitch.ai/blog/llm-api-pricing-2026): Input, cached and output prices for every chat model next to the developer's list, plus a calculator that prices your workload at list and here. Live catalog.
+- [Claude Code pricing and cost: plans vs pay-per-token API](https://uplinkswitch.ai/blog/claude-code-api-cost): Claude Code pricing for Pro, Max, Team and Enterprise, and what the same month of work costs per token at Anthropic's list price and ours.

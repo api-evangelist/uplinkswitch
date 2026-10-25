@@ -1,0 +1,24 @@
+generated: '2026-10-24'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://uplinkswitch.ai/guides/kilo-code
+sources:
+- https://uplinkswitch.ai/guides/kilo-code
+- https://uplinkswitch.ai/blog/best-uncensored-llm
+- https://uplinkswitch.ai/blog/claude-api-key
+- https://uplinkswitch.ai/blog/cursor-api-key-cost
+description: Authentication methods for UplinkSwitch API
+schemes:
+- type: http-bearer
+  name: Authorization
+  evidence: 'curl https://api.uplinkswitch.com/v1/models -H "Authorization: Bearer $UPLINKSWITCH_API_KEY"'
+  location: header
+  header: Authorization
+  how_to_obtain: Create a key in the UplinkSwitch console; the key is shown once and can be used as a bearer token.
+- type: other
+  name: x-api-key
+  evidence: 'curl https://api.uplinkswitch.com/v1/models -H "x-api-key: $ANTHROPIC_API_KEY"'
+  location: header
+  header: x-api-key
+  how_to_obtain: Create a key in the UplinkSwitch console; the key is shown once and can be sent in the x-api-key header.
+docs: https://uplinkswitch.ai/guides/kilo-code
