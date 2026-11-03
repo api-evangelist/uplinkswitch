@@ -1,5 +1,18 @@
 aid: uplinkswitch
 name: UplinkSwitch
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - authentication
+  - security
+  generated: '2026-11-02'
+  method: derived
 image: https://uplinkswitch.ai/opengraph-image
 description: UplinkSwitch provides a resold LLM gateway offering uncensored models below list price. It operates a platform at uplinkswitch.ai
   that aggregates multiple large language model providers, enabling developers to access a variety of models via a unified API. The service includes
