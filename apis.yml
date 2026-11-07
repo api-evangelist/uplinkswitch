@@ -11,7 +11,7 @@ accessModel:
   source:
   - authentication
   - security
-  generated: '2026-11-02'
+  generated: '2026-11-06'
   method: derived
 image: https://uplinkswitch.ai/opengraph-image
 description: UplinkSwitch provides a resold LLM gateway offering uncensored models below list price. It operates a platform at uplinkswitch.ai
