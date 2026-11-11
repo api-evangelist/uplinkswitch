@@ -109,7 +109,6 @@ apis:
   aid: uplinkswitch:uplinkswitch-api
 x-submission-notes: OpenAPI 3.1, 24 ops (api.uplinkswitch.com); llms.txt. Resold LLM gateway incl. "uncensored" models below list price -- note
   on listing
-x-submitted-by: hello@uplinkswitch.com (apis.io/add, 2026-10-23)
 x-enrichment:
   date: '2026-10-24'
   status: enriched
